@@ -17,7 +17,7 @@ public class HUDInterface : MonoBehaviour
             return;
         int amount = 0;
         if (int.TryParse(input, out amount))
-            OnCubeAmountChanged?.Invoke(amount);
+            OnCubeAmountChanged?.Invoke(Mathf.Clamp(amount, 2, 400));
         else
             Debug.Log("Not a valid integer entered.");
     }
@@ -28,7 +28,7 @@ public class HUDInterface : MonoBehaviour
             return;
         int amount = 0;
         if (int.TryParse(input, out amount))
-            OnColorAmountChanged?.Invoke(amount);
+            OnColorAmountChanged?.Invoke(Mathf.Clamp(amount, 1, 400));
         else
             Debug.Log("Not a valid integer entered.");
     }
@@ -39,7 +39,7 @@ public class HUDInterface : MonoBehaviour
             return;
         float time = 0;
         if (float.TryParse(input, out time))
-            OnHitTimeChanged?.Invoke(time);
+            OnHitTimeChanged?.Invoke(Mathf.Clamp(time, 2, 10));
         else
             Debug.Log("Not a valid float entered.");
     }
